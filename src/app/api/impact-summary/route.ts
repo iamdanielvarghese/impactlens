@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
+import { GoogleGenerativeAI, SchemaType, Schema } from "@google/generative-ai";
 
 export async function POST(req: Request) {
     try {
@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
         const genAI = new GoogleGenerativeAI(apiKey);
         
-        const schema = {
+        const schema: Schema = {
           type: SchemaType.OBJECT,
           properties: {
             Transport: { type: SchemaType.STRING, description: "A tangible 1-sentence real-life impact based on their Transport stats." },
